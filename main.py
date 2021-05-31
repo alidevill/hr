@@ -1,4 +1,5 @@
 import discord
+from discord.enums import Status
 from discord.ext import commands
 import os
 from discord.flags import Intents
@@ -14,6 +15,15 @@ client.remove_command('help')
 
 @client.event
 async def on_ready():
+    
+    # listening
+    await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.listening, name='phlolearn\'s playlist on spotify'))
+    # watching
+    await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name='phlolearn\'s vedios'))
+    # playing
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game(name='assassin\'s creed'))
+    # streaming
+    await client.change_presence(status=discord.Status.idle, activity=discord.Streaming(name='assassin\'s creed', url='https://www.twitch.tv/hr_arsha'))
     print('bot is ready.')
 
 @client.event
