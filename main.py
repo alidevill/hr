@@ -72,6 +72,7 @@ async def embed(ctx):
         title='PhiloLearn',
         description='این بات یک آزمایش و یک تجربه ی کوچک برای من است.',
         colour=0x5c1e26,
+        # colour=Colour.dark_blue,
     )
     philolearn_embed.set_image(url='https://hr-arsha.github.io/static-site/assets/img/portfolio/fullsize/3.jpg')
     philolearn_embed.set_footer(text='حتما ویدیو را لایک کرده و مارا سابسکرایب کنید', icon_url='https://hr-arsha.github.io/static-site/assets/img/logo.png')
