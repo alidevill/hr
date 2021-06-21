@@ -62,7 +62,7 @@ async def dastresi(ctx):
     elif role_name[0] == 'khodam':
         await ctx.send('شما دسترسی لازم را ندارید')   
 
-@client.command()
+@client.command(aliases=['p'])
 async def play(ctx, song_name):
     print(song_name)
 
@@ -80,6 +80,16 @@ async def embed(ctx):
     philolearn_embed.set_thumbnail(url='https://hr-arsha.github.io/static-site/assets/img/portfolio/fullsize/1.jpg')
 
     await ctx.send('سلام این بات آزمایشی فیلولرن است.', embed=philolearn_embed)
+
+@client.command(aliases=['clear', 'hazf', 'c'])
+async def clean(ctx, count=0):
+    count = int(count)
+    if count == 0:
+        await ctx.send('شما باید یک مقداری را تعیین کنید')
+    else:
+        await ctx.channel.purge(limit=count+1)
+        await ctx.send(f'>>> {count} ta piaiam pak shodan')
+
 
 
 client.run(TOKEN)
