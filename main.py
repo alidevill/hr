@@ -63,8 +63,9 @@ async def dastresi(ctx):
         await ctx.send('شما دسترسی لازم را ندارید')   
 
 @client.command(aliases=['p'])
+@commands.has_role('DJ')
 async def play(ctx, song_name):
-    print(song_name)
+    await ctx.send(f'plaing {song_name}')
 
 @client.command()
 async def embed(ctx):
@@ -90,6 +91,10 @@ async def clean(ctx, count=0):
         await ctx.channel.purge(limit=count+1)
         await ctx.send(f'>>> {count} ta piaiam pak shodan')
 
+@client.command()
+@commands.has_permissions(administrator=True)
+async def say_hello(ctx):
+    await ctx.send('hello')
 
 
 client.run(TOKEN)
