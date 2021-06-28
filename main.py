@@ -20,11 +20,11 @@ async def on_ready():
     # listening
     await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.listening, name='phlolearn\'s playlist on spotify'))
     # watching
-    await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name='phlolearn\'s vedios'))
+    # await client.change_presence(status=discord.Status.idle, activity=discord.Activity(type=discord.ActivityType.watching, name='phlolearn\'s vedios'))
     # playing
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game(name='assassin\'s creed'))
+    # await client.change_presence(status=discord.Status.idle, activity=discord.Game(name='assassin\'s creed'))
     # streaming
-    await client.change_presence(status=discord.Status.idle, activity=discord.Streaming(name='assassin\'s creed', url='https://www.twitch.tv/hr_arsha'))
+    # await client.change_presence(status=discord.Status.idle, activity=discord.Streaming(name='assassin\'s creed', url='https://www.twitch.tv/hr_arsha'))
     print('bot is ready.')
 
 @client.event
@@ -95,6 +95,11 @@ async def clean(ctx, count=0):
 @commands.has_permissions(administrator=True)
 async def say_hello(ctx):
     await ctx.send('hello')
+
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send('command not found')
 
 
 client.run(TOKEN)
